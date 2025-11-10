@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "./static/css/main.9337863b.css",
+    "main.js": "./static/js/main.164e9ef2.js",
+    "static/js/453.54292a4b.chunk.js": "./static/js/453.54292a4b.chunk.js",
+    "static/media/garden5.png": "./static/media/garden5.c0111cedb890926a5960.png",
+    "static/media/garden4.png": "./static/media/garden4.788f1b5a58e7523f8c8f.png",
+    "static/media/carosoule1.png": "./static/media/carosoule1.421898767469a63a1b69.png",
+    "static/media/garden3.png": "./static/media/garden3.2bb617b41792d4aea326.png",
+    "static/media/coach.png": "./static/media/coach.407a3b7576940ef3cd35.png",
+    "static/media/adminbg.png": "./static/media/adminbg.69b468591ba4c37f4a93.png",
+    "static/media/carosoule5.png": "./static/media/carosoule5.23af20822426e95918e9.png",
+    "static/media/backgroundlogin.png": "./static/media/backgroundlogin.ee764aaa99a674e2ad5f.png",
+    "static/media/stadium.jpg": "./static/media/stadium.856f445b9a4dfe153953.jpg",
+    "static/media/mobile.jpg": "./static/media/mobile.7579491b8f0e3ecbda78.jpg",
+    "static/media/garden1.png": "./static/media/garden1.df1ae644391353a33154.png",
+    "static/media/garden2.png": "./static/media/garden2.fad34024ce5bb5db6213.png",
+    "static/media/carosoule6.jpeg": "./static/media/carosoule6.41214757e9a63896fbc4.jpeg",
+    "static/media/carosoule1.jpeg": "./static/media/carosoule1.8935d0731f287304822d.jpeg",
+    "static/media/carosoule4.jpeg": "./static/media/carosoule4.a0b856b2682bf1d3ba12.jpeg",
+    "static/media/logo3.jpeg": "./static/media/logo3.5965e934b083f45900b8.jpeg",
+    "static/media/woman_13330662.png": "./static/media/woman_13330662.102ebaa83a6114f1b219.png",
+    "static/media/man_13385962.png": "./static/media/man_13385962.9aac27368469047682aa.png",
+    "static/media/profile.png": "./static/media/profile.852a18995986fcbfe2fd.png",
+    "static/media/slick.svg": "./static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "./static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "./static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "./static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "./index.html",
+    "main.9337863b.css.map": "./static/css/main.9337863b.css.map",
+    "main.164e9ef2.js.map": "./static/js/main.164e9ef2.js.map",
+    "453.54292a4b.chunk.js.map": "./static/js/453.54292a4b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9337863b.css",
+    "static/js/main.164e9ef2.js"
+  ]
+}

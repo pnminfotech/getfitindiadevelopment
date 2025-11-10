@@ -1,0 +1,117 @@
+import React, { useEffect, useState } from "react";
+import {
+  FaUser,
+  FaHome,
+  FaPlus,
+  FaChalkboardTeacher,
+  FaClipboardList,
+  FaTimes,
+  FaArrowLeft,
+} from "react-icons/fa";
+import profileimg from "../../assets/profile.png";
+
+const Sidebar = ({ onClose }) => {
+  const [user, setUser] = useState(null);
+  const [showProfile, setShowProfile] = useState(false);
+
+  useEffect(() => {
+    fetchUserDetails();
+  }, []);
+
+  const fetchUserDetails = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      const res = await fetch("http://localhost:8000/api/users/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!res.ok) throw new Error("Failed to fetch user");
+
+      const data = await res.json();
+      setUser(data);
+    } catch (err) {
+      console.error("Error fetching user:", err);
+    }
+  };
+
+  return (
+    <>
+    
+      <div
+        className="fixed inset-0 bg-black bg-opacity-40 z-[1001]"
+        onClick={onClose}
+      />
+
+    
+      <div className="fixed top-0 left-0 h-full w-64 bg-[#1E293B] shadow-lg z-[1002] text-white transition-transform">
+        <div className="flex flex-col items-center border-b border-gray-700 pb-4 pt-6 px-4 relative">
+          <img
+            src={profileimg}
+            alt="profile"
+            className="w-16 h-16 rounded-full mb-2 border-2 border-white"
+          />
+          {user ? (
+            <p className="text-sm text-gray-200">📱 {user.mobile}</p>
+          ) : (
+            <p className="text-sm text-gray-400">Loading...</p>
+          )}
+          <button
+            onClick={onClose}
+            className="text-xl hover:text-red-500 absolute top-2 right-2"
+          >
+            <FaTimes />
+          </button>
+        </div>
+
+        {/* Profile View */}
+        {showProfile ? (
+          <div className="p-4 space-y-2">
+            <button
+              className="flex items-center gap-2 text-sm text-blue-400 mb-3"
+              onClick={() => setShowProfile(false)}
+            >
+              <FaArrowLeft /> Back
+            </button>
+
+            <h2 className="text-lg font-semibold text-white mb-2">Profile Info</h2>
+            <p><span className="text-gray-400">Name:</span> {user?.name || "N/A"}</p>
+            <p><span className="text-gray-400">Mobile:</span> {user?.mobile}</p>
+            <p><span className="text-gray-400">City:</span> {user?.city || "N/A"}</p>
+            <p><span className="text-gray-400">Sports Preferences:</span> 
+              {user?.sportsPreferences?.length > 0
+                ? user.sportsPreferences.join(", ")
+                : "None"}
+            </p>
+          </div>
+        ) : (
+          <ul className="p-4 space-y-4">
+            <li
+              className="flex items-center gap-3 hover:bg-gray-700 px-4 py-2 rounded-md cursor-pointer"
+              onClick={() => setShowProfile(true)}
+            >
+              <FaUser /> Profile
+            </li>
+            <li className="flex items-center gap-3 hover:bg-gray-700 px-4 py-2 rounded-md cursor-pointer">
+              <FaHome /> Venues
+            </li>
+            <li className="flex items-center gap-3 hover:bg-gray-700 px-4 py-2 rounded-md cursor-pointer">
+              <FaPlus /> Add Venue
+            </li>
+            <li className="flex items-center gap-3 hover:bg-gray-700 px-4 py-2 rounded-md cursor-pointer">
+              <FaChalkboardTeacher /> Coaches
+            </li>
+            <li className="flex items-center gap-3 hover:bg-gray-700 px-4 py-2 rounded-md cursor-pointer">
+              <FaClipboardList /> Bookings
+            </li>
+          </ul>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default Sidebar;

@@ -1,0 +1,1288 @@
+Microsoft Windows [Version 10.0.26100.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\cheta>ssh -i ~/Downloads/getfitindia.pem ubuntu@15.206.183.127
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-1029-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Wed Sep 17 07:42:56 UTC 2025
+
+  System load:  0.08              Temperature:           -273.1 C
+  Usage of /:   50.8% of 6.71GB   Processes:             113
+  Memory usage: 41%               Users logged in:       0
+  Swap usage:   0%                IPv4 address for ens5: 172.31.22.85
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+53 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Tue Sep 16 12:39:53 2025 from 103.132.197.237
+ubuntu@ip-172-31-22-85:~$ ls
+backend
+ubuntu@ip-172-31-22-85:~$ cd backend
+ubuntu@ip-172-31-22-85:~/backend$ ls
+backend  package-lock.json
+ubuntu@ip-172-31-22-85:~/backend$ cd backend
+ubuntu@ip-172-31-22-85:~/backend/backend$ ls
+config       fixEmailIndex.js  hash.js   middlewares  node_modules       package.json  uploads
+controllers  fixIndexes.js     index.js  models       package-lock.json  routes        utils
+ubuntu@ip-172-31-22-85:~/backend/backend$ git status
+On branch master
+You are in a sparse checkout with 98% of tracked files present.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   node_modules/.package-lock.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        node_modules/@img/sharp-libvips-linux-x64/
+        node_modules/@img/sharp-libvips-linuxmusl-x64/
+        node_modules/@img/sharp-linux-x64/
+        node_modules/@img/sharp-linuxmusl-x64/
+        ../package-lock.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ubuntu@ip-172-31-22-85:~/backend/backend$ git pull origin master
+fatal: couldn't find remote ref master
+ubuntu@ip-172-31-22-85:~/backend/backend$ git add .
+ubuntu@ip-172-31-22-85:~/backend/backend$ git clean -fd
+Removing node_modules/@emnapi/
+Removing node_modules/@img/sharp-libvips-linux-x64/
+Removing node_modules/@img/sharp-libvips-linuxmusl-x64/
+Removing node_modules/@img/sharp-linux-x64/
+Removing node_modules/@img/sharp-linuxmusl-x64/
+ubuntu@ip-172-31-22-85:~/backend/backend$ git pull origin master
+fatal: couldn't find remote ref master
+ubuntu@ip-172-31-22-85:~/backend/backend$ git branch -r
+  origin/main
+ubuntu@ip-172-31-22-85:~/backend/backend$ git pull origin main
+remote: Enumerating objects: 470, done.
+remote: Counting objects: 100% (446/446), done.
+remote: Compressing objects: 100% (250/250), done.
+remote: Total 470 (delta 193), reused 446 (delta 193), pack-reused 24 (from 1)
+Receiving objects: 100% (470/470), 58.00 MiB | 13.99 MiB/s, done.
+Resolving deltas: 100% (194/194), completed with 20 local objects.
+From https://github.com/pnminfotech/FitIndiaApp
+ * branch            main       -> FETCH_HEAD
+   e73fe29..9bad8bb  main       -> origin/main
+Updating e73fe29..9bad8bb
+Fast-forward
+ backend/controllers/authController.js                                |    32 +-
+ backend/controllers/bookingController.js                             |   330 +-
+ backend/middlewares/authMiddleware.js                                |    40 +-
+ backend/models/Booking.js                                            |    77 +-
+ backend/node_modules/.package-lock.json                              |     9 +
+ backend/node_modules/moment/CHANGELOG.md                             |   996 +++
+ backend/node_modules/moment/LICENSE                                  |    22 +
+ backend/node_modules/moment/README.md                                |    55 +
+ backend/node_modules/moment/dist/locale/af.js                        |    71 +
+ backend/node_modules/moment/dist/locale/ar-dz.js                     |   156 +
+ backend/node_modules/moment/dist/locale/ar-kw.js                     |    55 +
+ backend/node_modules/moment/dist/locale/ar-ly.js                     |   171 +
+ backend/node_modules/moment/dist/locale/ar-ma.js                     |    56 +
+ backend/node_modules/moment/dist/locale/ar-ps.js                     |   112 +
+ backend/node_modules/moment/dist/locale/ar-sa.js                     |   105 +
+ backend/node_modules/moment/dist/locale/ar-tn.js                     |    55 +
+ backend/node_modules/moment/dist/locale/ar.js                        |   189 +
+ backend/node_modules/moment/dist/locale/az.js                        |   102 +
+ backend/node_modules/moment/dist/locale/be.js                        |   142 +
+ backend/node_modules/moment/dist/locale/bg.js                        |    87 +
+ backend/node_modules/moment/dist/locale/bm.js                        |    52 +
+ backend/node_modules/moment/dist/locale/bn-bd.js                     |   129 +
+ backend/node_modules/moment/dist/locale/bn.js                        |   119 +
+ backend/node_modules/moment/dist/locale/bo.js                        |   124 +
+ backend/node_modules/moment/dist/locale/br.js                        |   168 +
+ backend/node_modules/moment/dist/locale/bs.js                        |   160 +
+ backend/node_modules/moment/dist/locale/ca.js                        |   100 +
+ backend/node_modules/moment/dist/locale/cs.js                        |   181 +
+ backend/node_modules/moment/dist/locale/cv.js                        |    63 +
+ backend/node_modules/moment/dist/locale/cy.js                        |    98 +
+ backend/node_modules/moment/dist/locale/da.js                        |    53 +
+ backend/node_modules/moment/dist/locale/de-at.js                     |    79 +
+ backend/node_modules/moment/dist/locale/de-ch.js                     |    78 +
+ backend/node_modules/moment/dist/locale/de.js                        |    78 +
+ backend/node_modules/moment/dist/locale/dv.js                        |    90 +
+ backend/node_modules/moment/dist/locale/el.js                        |   106 +
+ backend/node_modules/moment/dist/locale/en-au.js                     |    68 +
+ backend/node_modules/moment/dist/locale/en-ca.js                     |    64 +
+ backend/node_modules/moment/dist/locale/en-gb.js                     |    68 +
+ backend/node_modules/moment/dist/locale/en-ie.js                     |    68 +
+ backend/node_modules/moment/dist/locale/en-il.js                     |    64 +
+ backend/node_modules/moment/dist/locale/en-in.js                     |    68 +
+ backend/node_modules/moment/dist/locale/en-nz.js                     |    68 +
+ backend/node_modules/moment/dist/locale/en-sg.js                     |    68 +
+ backend/node_modules/moment/dist/locale/eo.js                        |    68 +
+ backend/node_modules/moment/dist/locale/es-do.js                     |   108 +
+ backend/node_modules/moment/dist/locale/es-mx.js                     |   110 +
+ backend/node_modules/moment/dist/locale/es-us.js                     |   110 +
+ backend/node_modules/moment/dist/locale/es.js                        |   110 +
+ backend/node_modules/moment/dist/locale/et.js                        |    78 +
+ backend/node_modules/moment/dist/locale/eu.js                        |    65 +
+ backend/node_modules/moment/dist/locale/fa.js                        |   113 +
+ backend/node_modules/moment/dist/locale/fi.js                        |   124 +
+ backend/node_modules/moment/dist/locale/fil.js                       |    58 +
+ backend/node_modules/moment/dist/locale/fo.js                        |    57 +
+ backend/node_modules/moment/dist/locale/fr-ca.js                     |    70 +
+ backend/node_modules/moment/dist/locale/fr-ch.js                     |    74 +
+ backend/node_modules/moment/dist/locale/fr.js                        |   108 +
+ backend/node_modules/moment/dist/locale/fy.js                        |    75 +
+ backend/node_modules/moment/dist/locale/ga.js                        |    95 +
+ backend/node_modules/moment/dist/locale/gd.js                        |    95 +
+ backend/node_modules/moment/dist/locale/gl.js                        |    75 +
+ backend/node_modules/moment/dist/locale/gom-deva.js                  |   126 +
+ backend/node_modules/moment/dist/locale/gom-latn.js                  |   124 +
+ backend/node_modules/moment/dist/locale/gu.js                        |   122 +
+ backend/node_modules/moment/dist/locale/he.js                        |    94 +
+ backend/node_modules/moment/dist/locale/hi.js                        |   168 +
+ backend/node_modules/moment/dist/locale/hr.js                        |   156 +
+ backend/node_modules/moment/dist/locale/hu.js                        |   118 +
+ backend/node_modules/moment/dist/locale/hy-am.js                     |    94 +
+ backend/node_modules/moment/dist/locale/id.js                        |    76 +
+ backend/node_modules/moment/dist/locale/is.js                        |   140 +
+ backend/node_modules/moment/dist/locale/it-ch.js                     |    64 +
+ backend/node_modules/moment/dist/locale/it.js                        |   106 +
+ backend/node_modules/moment/dist/locale/ja.js                        |   148 +
+ backend/node_modules/moment/dist/locale/jv.js                        |    76 +
+ backend/node_modules/moment/dist/locale/ka.js                        |    92 +
+ backend/node_modules/moment/dist/locale/kk.js                        |    82 +
+ backend/node_modules/moment/dist/locale/km.js                        |   103 +
+ backend/node_modules/moment/dist/locale/kn.js                        |   124 +
+ backend/node_modules/moment/dist/locale/ko.js                        |    75 +
+ backend/node_modules/moment/dist/locale/ku-kmr.js                    |   121 +
+ backend/node_modules/moment/dist/locale/ku.js                        |   118 +
+ backend/node_modules/moment/dist/locale/ky.js                        |    84 +
+ backend/node_modules/moment/dist/locale/lb.js                        |   137 +
+ backend/node_modules/moment/dist/locale/lo.js                        |    66 +
+ backend/node_modules/moment/dist/locale/lt.js                        |   125 +
+ backend/node_modules/moment/dist/locale/lv.js                        |    94 +
+ backend/node_modules/moment/dist/locale/me.js                        |   117 +
+ backend/node_modules/moment/dist/locale/mi.js                        |    60 +
+ backend/node_modules/moment/dist/locale/mk.js                        |    85 +
+ backend/node_modules/moment/dist/locale/ml.js                        |    82 +
+ backend/node_modules/moment/dist/locale/mn.js                        |   100 +
+ backend/node_modules/moment/dist/locale/mr.js                        |   203 +
+ backend/node_modules/moment/dist/locale/ms-my.js                     |    76 +
+ backend/node_modules/moment/dist/locale/ms.js                        |    75 +
+ backend/node_modules/moment/dist/locale/mt.js                        |    56 +
+ backend/node_modules/moment/dist/locale/my.js                        |    91 +
+ backend/node_modules/moment/dist/locale/nb.js                        |    60 +
+ backend/node_modules/moment/dist/locale/ne.js                        |   121 +
+ backend/node_modules/moment/dist/locale/nl-be.js                     |   102 +
+ backend/node_modules/moment/dist/locale/nl.js                        |   104 +
+ backend/node_modules/moment/dist/locale/nn.js                        |    59 +
+ backend/node_modules/moment/dist/locale/oc-lnc.js                    |    85 +
+ backend/node_modules/moment/dist/locale/pa-in.js                     |   122 +
+ backend/node_modules/moment/dist/locale/pl.js                        |   140 +
+ backend/node_modules/moment/dist/locale/pt-br.js                     |    58 +
+ backend/node_modules/moment/dist/locale/pt.js                        |    63 +
+ backend/node_modules/moment/dist/locale/ro.js                        |    76 +
+ backend/node_modules/moment/dist/locale/ru.js                        |   213 +
+ backend/node_modules/moment/dist/locale/sd.js                        |    81 +
+ backend/node_modules/moment/dist/locale/se.js                        |    57 +
+ backend/node_modules/moment/dist/locale/si.js                        |    69 +
+ backend/node_modules/moment/dist/locale/sk.js                        |   145 +
+ backend/node_modules/moment/dist/locale/sl.js                        |   171 +
+ backend/node_modules/moment/dist/locale/sq.js                        |    65 +
+ backend/node_modules/moment/dist/locale/sr-cyrl.js                   |   127 +
+ backend/node_modules/moment/dist/locale/sr.js                        |   129 +
+ backend/node_modules/moment/dist/locale/ss.js                        |    84 +
+ backend/node_modules/moment/dist/locale/sv.js                        |    68 +
+ backend/node_modules/moment/dist/locale/sw.js                        |    55 +
+ backend/node_modules/moment/dist/locale/ta.js                        |   131 +
+ backend/node_modules/moment/dist/locale/te.js                        |    88 +
+ backend/node_modules/moment/dist/locale/tet.js                       |    68 +
+ backend/node_modules/moment/dist/locale/tg.js                        |   117 +
+ backend/node_modules/moment/dist/locale/th.js                        |    65 +
+ backend/node_modules/moment/dist/locale/tk.js                        |    91 +
+ backend/node_modules/moment/dist/locale/tl-ph.js                     |    57 +
+ backend/node_modules/moment/dist/locale/tlh.js                       |   124 +
+ backend/node_modules/moment/dist/locale/tr.js                        |   106 +
+ backend/node_modules/moment/dist/locale/tzl.js                       |    89 +
+ backend/node_modules/moment/dist/locale/tzm-latn.js                  |    54 +
+ backend/node_modules/moment/dist/locale/tzm.js                       |    54 +
+ backend/node_modules/moment/dist/locale/ug-cn.js                     |   111 +
+ backend/node_modules/moment/dist/locale/uk.js                        |   167 +
+ backend/node_modules/moment/dist/locale/ur.js                        |    82 +
+ backend/node_modules/moment/dist/locale/uz-latn.js                   |    54 +
+ backend/node_modules/moment/dist/locale/uz.js                        |    51 +
+ backend/node_modules/moment/dist/locale/vi.js                        |    80 +
+ backend/node_modules/moment/dist/locale/x-pseudo.js                  |    73 +
+ backend/node_modules/moment/dist/locale/yo.js                        |    53 +
+ backend/node_modules/moment/dist/locale/zh-cn.js                     |   120 +
+ backend/node_modules/moment/dist/locale/zh-hk.js                     |   101 +
+ backend/node_modules/moment/dist/locale/zh-mo.js                     |   100 +
+ backend/node_modules/moment/dist/locale/zh-tw.js                     |    99 +
+ backend/node_modules/moment/dist/moment.js                           |  5680 +++++++++++++
+ backend/node_modules/moment/ender.js                                 |     1 +
+ backend/node_modules/moment/locale/af.js                             |    82 +
+ backend/node_modules/moment/locale/ar-dz.js                          |   167 +
+ backend/node_modules/moment/locale/ar-kw.js                          |    66 +
+ backend/node_modules/moment/locale/ar-ly.js                          |   182 +
+ backend/node_modules/moment/locale/ar-ma.js                          |    67 +
+ backend/node_modules/moment/locale/ar-ps.js                          |   123 +
+ backend/node_modules/moment/locale/ar-sa.js                          |   116 +
+ backend/node_modules/moment/locale/ar-tn.js                          |    66 +
+ backend/node_modules/moment/locale/ar.js                             |   200 +
+ backend/node_modules/moment/locale/az.js                             |   113 +
+ backend/node_modules/moment/locale/be.js                             |   153 +
+ backend/node_modules/moment/locale/bg.js                             |    98 +
+ backend/node_modules/moment/locale/bm.js                             |    62 +
+ backend/node_modules/moment/locale/bn-bd.js                          |   140 +
+ backend/node_modules/moment/locale/bn.js                             |   130 +
+ backend/node_modules/moment/locale/bo.js                             |   135 +
+ backend/node_modules/moment/locale/br.js                             |   179 +
+ backend/node_modules/moment/locale/bs.js                             |   171 +
+ backend/node_modules/moment/locale/ca.js                             |   111 +
+ backend/node_modules/moment/locale/cs.js                             |   192 +
+ backend/node_modules/moment/locale/cv.js                             |    74 +
+ backend/node_modules/moment/locale/cy.js                             |   109 +
+ backend/node_modules/moment/locale/da.js                             |    64 +
+ backend/node_modules/moment/locale/de-at.js                          |    90 +
+ backend/node_modules/moment/locale/de-ch.js                          |    87 +
+ backend/node_modules/moment/locale/de.js                             |    89 +
+ backend/node_modules/moment/locale/dv.js                             |   101 +
+ backend/node_modules/moment/locale/el.js                             |   117 +
+ backend/node_modules/moment/locale/en-au.js                          |    79 +
+ backend/node_modules/moment/locale/en-ca.js                          |    75 +
+ backend/node_modules/moment/locale/en-gb.js                          |    79 +
+ backend/node_modules/moment/locale/en-ie.js                          |    79 +
+ backend/node_modules/moment/locale/en-il.js                          |    75 +
+ backend/node_modules/moment/locale/en-in.js                          |    79 +
+ backend/node_modules/moment/locale/en-nz.js                          |    79 +
+ backend/node_modules/moment/locale/en-sg.js                          |    79 +
+ backend/node_modules/moment/locale/eo.js                             |    79 +
+ backend/node_modules/moment/locale/es-do.js                          |   119 +
+ backend/node_modules/moment/locale/es-mx.js                          |   121 +
+ backend/node_modules/moment/locale/es-us.js                          |   121 +
+ backend/node_modules/moment/locale/es.js                             |   121 +
+ backend/node_modules/moment/locale/et.js                             |    89 +
+ backend/node_modules/moment/locale/eu.js                             |    76 +
+ backend/node_modules/moment/locale/fa.js                             |   124 +
+ backend/node_modules/moment/locale/fi.js                             |   135 +
+ backend/node_modules/moment/locale/fil.js                            |    69 +
+ backend/node_modules/moment/locale/fo.js                             |    68 +
+ backend/node_modules/moment/locale/fr-ca.js                          |    81 +
+ backend/node_modules/moment/locale/fr-ch.js                          |    85 +
+ backend/node_modules/moment/locale/fr.js                             |   119 +
+ backend/node_modules/moment/locale/fy.js                             |    86 +
+ backend/node_modules/moment/locale/ga.js                             |   106 +
+ backend/node_modules/moment/locale/gd.js                             |   106 +
+ backend/node_modules/moment/locale/gl.js                             |    86 +
+ backend/node_modules/moment/locale/gom-deva.js                       |   137 +
+ backend/node_modules/moment/locale/gom-latn.js                       |   135 +
+ backend/node_modules/moment/locale/gu.js                             |   133 +
+ backend/node_modules/moment/locale/he.js                             |   105 +
+ backend/node_modules/moment/locale/hi.js                             |   179 +
+ backend/node_modules/moment/locale/hr.js                             |   167 +
+ backend/node_modules/moment/locale/hu.js                             |   129 +
+ backend/node_modules/moment/locale/hy-am.js                          |   105 +
+ backend/node_modules/moment/locale/id.js                             |    87 +
+ backend/node_modules/moment/locale/is.js                             |   151 +
+ backend/node_modules/moment/locale/it-ch.js                          |    75 +
+ backend/node_modules/moment/locale/it.js                             |   117 +
+ backend/node_modules/moment/locale/ja.js                             |   159 +
+ backend/node_modules/moment/locale/jv.js                             |    87 +
+ backend/node_modules/moment/locale/ka.js                             |   103 +
+ backend/node_modules/moment/locale/kk.js                             |    93 +
+ backend/node_modules/moment/locale/km.js                             |   114 +
+ backend/node_modules/moment/locale/kn.js                             |   135 +
+ backend/node_modules/moment/locale/ko.js                             |    86 +
+ backend/node_modules/moment/locale/ku-kmr.js                         |   125 +
+ backend/node_modules/moment/locale/ku.js                             |   129 +
+ backend/node_modules/moment/locale/ky.js                             |    95 +
+ backend/node_modules/moment/locale/lb.js                             |   148 +
+ backend/node_modules/moment/locale/lo.js                             |    77 +
+ backend/node_modules/moment/locale/lt.js                             |   136 +
+ backend/node_modules/moment/locale/lv.js                             |   105 +
+ backend/node_modules/moment/locale/me.js                             |   128 +
+ backend/node_modules/moment/locale/mi.js                             |    71 +
+ backend/node_modules/moment/locale/mk.js                             |    97 +
+ backend/node_modules/moment/locale/ml.js                             |    93 +
+ backend/node_modules/moment/locale/mn.js                             |   111 +
+ backend/node_modules/moment/locale/mr.js                             |   214 +
+ backend/node_modules/moment/locale/ms-my.js                          |    87 +
+ backend/node_modules/moment/locale/ms.js                             |    86 +
+ backend/node_modules/moment/locale/mt.js                             |    67 +
+ backend/node_modules/moment/locale/my.js                             |   102 +
+ backend/node_modules/moment/locale/nb.js                             |    71 +
+ backend/node_modules/moment/locale/ne.js                             |   132 +
+ backend/node_modules/moment/locale/nl-be.js                          |   113 +
+ backend/node_modules/moment/locale/nl.js                             |   115 +
+ backend/node_modules/moment/locale/nn.js                             |    70 +
+ backend/node_modules/moment/locale/oc-lnc.js                         |    96 +
+ backend/node_modules/moment/locale/pa-in.js                          |   133 +
+ backend/node_modules/moment/locale/pl.js                             |   151 +
+ backend/node_modules/moment/locale/pt-br.js                          |    69 +
+ backend/node_modules/moment/locale/pt.js                             |    74 +
+ backend/node_modules/moment/locale/ro.js                             |    87 +
+ backend/node_modules/moment/locale/ru.js                             |   224 +
+ backend/node_modules/moment/locale/sd.js                             |    92 +
+ backend/node_modules/moment/locale/se.js                             |    68 +
+ backend/node_modules/moment/locale/si.js                             |    80 +
+ backend/node_modules/moment/locale/sk.js                             |   156 +
+ backend/node_modules/moment/locale/sl.js                             |   182 +
+ backend/node_modules/moment/locale/sq.js                             |    76 +
+ backend/node_modules/moment/locale/sr-cyrl.js                        |   138 +
+ backend/node_modules/moment/locale/sr.js                             |   140 +
+ backend/node_modules/moment/locale/ss.js                             |    95 +
+ backend/node_modules/moment/locale/sv.js                             |    79 +
+ backend/node_modules/moment/locale/sw.js                             |    66 +
+ backend/node_modules/moment/locale/ta.js                             |   142 +
+ backend/node_modules/moment/locale/te.js                             |    99 +
+ backend/node_modules/moment/locale/tet.js                            |    79 +
+ backend/node_modules/moment/locale/tg.js                             |   128 +
+ backend/node_modules/moment/locale/th.js                             |    76 +
+ backend/node_modules/moment/locale/tk.js                             |   102 +
+ backend/node_modules/moment/locale/tl-ph.js                          |    68 +
+ backend/node_modules/moment/locale/tlh.js                            |   135 +
+ backend/node_modules/moment/locale/tr.js                             |   117 +
+ backend/node_modules/moment/locale/tzl.js                            |   100 +
+ backend/node_modules/moment/locale/tzm-latn.js                       |    65 +
+ backend/node_modules/moment/locale/tzm.js                            |    65 +
+ backend/node_modules/moment/locale/ug-cn.js                          |   122 +
+ backend/node_modules/moment/locale/uk.js                             |   178 +
+ backend/node_modules/moment/locale/ur.js                             |    93 +
+ backend/node_modules/moment/locale/uz-latn.js                        |    65 +
+ backend/node_modules/moment/locale/uz.js                             |    62 +
+ backend/node_modules/moment/locale/vi.js                             |    91 +
+ backend/node_modules/moment/locale/x-pseudo.js                       |    84 +
+ backend/node_modules/moment/locale/yo.js                             |    64 +
+ backend/node_modules/moment/locale/zh-cn.js                          |   131 +
+ backend/node_modules/moment/locale/zh-hk.js                          |   112 +
+ backend/node_modules/moment/locale/zh-mo.js                          |   111 +
+ backend/node_modules/moment/locale/zh-tw.js                          |   110 +
+ backend/node_modules/moment/min/locales.js                           | 12800 ++++++++++++++++++++++++++++
+ backend/node_modules/moment/min/locales.min.js                       |     2 +
+ backend/node_modules/moment/min/locales.min.js.map                   |     1 +
+ backend/node_modules/moment/min/moment-with-locales.js               | 18472 +++++++++++++++++++++++++++++++++++++++++
+ backend/node_modules/moment/min/moment-with-locales.min.js           |     2 +
+ backend/node_modules/moment/min/moment-with-locales.min.js.map       |     1 +
+ backend/node_modules/moment/min/moment.min.js                        |     2 +
+ backend/node_modules/moment/min/moment.min.js.map                    |     1 +
+ backend/node_modules/moment/moment.d.ts                              |   796 ++
+ backend/node_modules/moment/moment.js                                |  5688 +++++++++++++
+ backend/node_modules/moment/package.js                               |    11 +
+ backend/node_modules/moment/package.json                             |   116 +
+ backend/node_modules/moment/src/lib/create/check-overflow.js         |    57 +
+ backend/node_modules/moment/src/lib/create/date-from-array.js        |    35 +
+ backend/node_modules/moment/src/lib/create/from-anything.js          |   117 +
+ backend/node_modules/moment/src/lib/create/from-array.js             |   187 +
+ backend/node_modules/moment/src/lib/create/from-object.js            |    20 +
+ backend/node_modules/moment/src/lib/create/from-string-and-array.js  |    67 +
+ backend/node_modules/moment/src/lib/create/from-string-and-format.js |   135 +
+ backend/node_modules/moment/src/lib/create/from-string.js            |   258 +
+ backend/node_modules/moment/src/lib/create/local.js                  |     5 +
+ backend/node_modules/moment/src/lib/create/parsing-flags.js          |    28 +
+ backend/node_modules/moment/src/lib/create/utc.js                    |     5 +
+ backend/node_modules/moment/src/lib/create/valid.js                  |    51 +
+ backend/node_modules/moment/src/lib/duration/abs.js                  |    18 +
+ backend/node_modules/moment/src/lib/duration/add-subtract.js         |    21 +
+ backend/node_modules/moment/src/lib/duration/as.js                   |    76 +
+ backend/node_modules/moment/src/lib/duration/bubble.js               |    68 +
+ backend/node_modules/moment/src/lib/duration/clone.js                |     5 +
+ backend/node_modules/moment/src/lib/duration/constructor.js          |    42 +
+ backend/node_modules/moment/src/lib/duration/create.js               |   133 +
+ backend/node_modules/moment/src/lib/duration/duration.js             |    16 +
+ backend/node_modules/moment/src/lib/duration/get.js                  |    27 +
+ backend/node_modules/moment/src/lib/duration/humanize.js             |   114 +
+ backend/node_modules/moment/src/lib/duration/iso-string.js           |    68 +
+ backend/node_modules/moment/src/lib/duration/prototype.js            |    78 +
+ backend/node_modules/moment/src/lib/duration/valid.js                |    55 +
+ backend/node_modules/moment/src/lib/format/format.js                 |   104 +
+ backend/node_modules/moment/src/lib/locale/base-config.js            |    41 +
+ backend/node_modules/moment/src/lib/locale/calendar.js               |    15 +
+ backend/node_modules/moment/src/lib/locale/constructor.js            |     5 +
+ backend/node_modules/moment/src/lib/locale/en.js                     |    39 +
+ backend/node_modules/moment/src/lib/locale/formats.js                |    36 +
+ backend/node_modules/moment/src/lib/locale/invalid.js                |     5 +
+ backend/node_modules/moment/src/lib/locale/lists.js                  |    93 +
+ backend/node_modules/moment/src/lib/locale/locale.js                 |    45 +
+ backend/node_modules/moment/src/lib/locale/locales.js                |   249 +
+ backend/node_modules/moment/src/lib/locale/ordinal.js                |     8 +
+ backend/node_modules/moment/src/lib/locale/pre-post-format.js        |     3 +
+ backend/node_modules/moment/src/lib/locale/prototype.js              |    88 +
+ backend/node_modules/moment/src/lib/locale/relative.js               |    32 +
+ backend/node_modules/moment/src/lib/locale/set.js                    |    56 +
+ backend/node_modules/moment/src/lib/moment/add-subtract.js           |    61 +
+ backend/node_modules/moment/src/lib/moment/calendar.js               |    53 +
+ backend/node_modules/moment/src/lib/moment/clone.js                  |     5 +
+ backend/node_modules/moment/src/lib/moment/compare.js                |    72 +
+ backend/node_modules/moment/src/lib/moment/constructor.js            |    80 +
+ backend/node_modules/moment/src/lib/moment/creation-data.js          |     9 +
+ backend/node_modules/moment/src/lib/moment/diff.js                   |    79 +
+ backend/node_modules/moment/src/lib/moment/format.js                 |    78 +
+ backend/node_modules/moment/src/lib/moment/from.js                   |    20 +
+ backend/node_modules/moment/src/lib/moment/get-set.js                |   117 +
+ backend/node_modules/moment/src/lib/moment/locale.js                 |    34 +
+ backend/node_modules/moment/src/lib/moment/min-max.js                |    62 +
+ backend/node_modules/moment/src/lib/moment/moment.js                 |    28 +
+ backend/node_modules/moment/src/lib/moment/now.js                    |     3 +
+ backend/node_modules/moment/src/lib/moment/prototype.js              |   197 +
+ backend/node_modules/moment/src/lib/moment/start-end-of.js           |   164 +
+ backend/node_modules/moment/src/lib/moment/to-type.js                |    42 +
+ backend/node_modules/moment/src/lib/moment/to.js                     |    20 +
+ backend/node_modules/moment/src/lib/moment/valid.js                  |    15 +
+ backend/node_modules/moment/src/lib/parse/regex.js                   |    84 +
+ backend/node_modules/moment/src/lib/parse/token.js                   |    36 +
+ backend/node_modules/moment/src/lib/units/aliases.js                 |    75 +
+ backend/node_modules/moment/src/lib/units/constants.js               |     9 +
+ backend/node_modules/moment/src/lib/units/day-of-month.js            |    35 +
+ backend/node_modules/moment/src/lib/units/day-of-week.js             |   432 +
+ backend/node_modules/moment/src/lib/units/day-of-year.js             |    28 +
+ backend/node_modules/moment/src/lib/units/era.js                     |   293 +
+ backend/node_modules/moment/src/lib/units/hour.js                    |   152 +
+ backend/node_modules/moment/src/lib/units/millisecond.js             |    66 +
+ backend/node_modules/moment/src/lib/units/minute.js                  |    24 +
+ backend/node_modules/moment/src/lib/units/month.js                   |   340 +
+ backend/node_modules/moment/src/lib/units/offset.js                  |   249 +
+ backend/node_modules/moment/src/lib/units/priorities.js              |    34 +
+ backend/node_modules/moment/src/lib/units/quarter.js                 |    24 +
+ backend/node_modules/moment/src/lib/units/second.js                  |    24 +
+ backend/node_modules/moment/src/lib/units/timestamp.js               |    20 +
+ backend/node_modules/moment/src/lib/units/timezone.js                |    16 +
+ backend/node_modules/moment/src/lib/units/units.js                   |    20 +
+ backend/node_modules/moment/src/lib/units/week-calendar-utils.js     |    66 +
+ backend/node_modules/moment/src/lib/units/week-year.js               |   128 +
+ backend/node_modules/moment/src/lib/units/week.js                    |    62 +
+ backend/node_modules/moment/src/lib/units/year.js                    |    75 +
+ backend/node_modules/moment/src/lib/utils/abs-ceil.js                |     7 +
+ backend/node_modules/moment/src/lib/utils/abs-floor.js               |     8 +
+ backend/node_modules/moment/src/lib/utils/abs-round.js               |     7 +
+ backend/node_modules/moment/src/lib/utils/compare-arrays.js          |    18 +
+ backend/node_modules/moment/src/lib/utils/defaults.js                |    10 +
+ backend/node_modules/moment/src/lib/utils/deprecate.js               |    69 +
+ backend/node_modules/moment/src/lib/utils/extend.js                  |    19 +
+ backend/node_modules/moment/src/lib/utils/has-own-prop.js            |     3 +
+ backend/node_modules/moment/src/lib/utils/hooks.js                   |    13 +
+ backend/node_modules/moment/src/lib/utils/index-of.js                |    18 +
+ backend/node_modules/moment/src/lib/utils/is-array.js                |     6 +
+ backend/node_modules/moment/src/lib/utils/is-calendar-spec.js        |    25 +
+ backend/node_modules/moment/src/lib/utils/is-date.js                 |     6 +
+ backend/node_modules/moment/src/lib/utils/is-function.js             |     6 +
+ backend/node_modules/moment/src/lib/utils/is-leap-year.js            |     3 +
+ backend/node_modules/moment/src/lib/utils/is-moment-input.js         |    75 +
+ backend/node_modules/moment/src/lib/utils/is-number.js               |     6 +
+ backend/node_modules/moment/src/lib/utils/is-object-empty.js         |    15 +
+ backend/node_modules/moment/src/lib/utils/is-object.js               |     8 +
+ backend/node_modules/moment/src/lib/utils/is-string.js               |     3 +
+ backend/node_modules/moment/src/lib/utils/is-undefined.js            |     3 +
+ backend/node_modules/moment/src/lib/utils/keys.js                    |    20 +
+ backend/node_modules/moment/src/lib/utils/map.js                     |     9 +
+ backend/node_modules/moment/src/lib/utils/mod.js                     |     3 +
+ backend/node_modules/moment/src/lib/utils/some.js                    |    20 +
+ backend/node_modules/moment/src/lib/utils/to-int.js                  |    12 +
+ backend/node_modules/moment/src/lib/utils/zero-fill.js               |    10 +
+ backend/node_modules/moment/src/locale/af.js                         |    71 +
+ backend/node_modules/moment/src/locale/ar-dz.js                      |   156 +
+ backend/node_modules/moment/src/locale/ar-kw.js                      |    55 +
+ backend/node_modules/moment/src/locale/ar-ly.js                      |   171 +
+ backend/node_modules/moment/src/locale/ar-ma.js                      |    56 +
+ backend/node_modules/moment/src/locale/ar-ps.js                      |   112 +
+ backend/node_modules/moment/src/locale/ar-sa.js                      |   105 +
+ backend/node_modules/moment/src/locale/ar-tn.js                      |    55 +
+ backend/node_modules/moment/src/locale/ar.js                         |   189 +
+ backend/node_modules/moment/src/locale/az.js                         |   102 +
+ backend/node_modules/moment/src/locale/be.js                         |   142 +
+ backend/node_modules/moment/src/locale/bg.js                         |    87 +
+ backend/node_modules/moment/src/locale/bm.js                         |    52 +
+ backend/node_modules/moment/src/locale/bn-bd.js                      |   129 +
+ backend/node_modules/moment/src/locale/bn.js                         |   119 +
+ backend/node_modules/moment/src/locale/bo.js                         |   124 +
+ backend/node_modules/moment/src/locale/br.js                         |   168 +
+ backend/node_modules/moment/src/locale/bs.js                         |   160 +
+ backend/node_modules/moment/src/locale/ca.js                         |   100 +
+ backend/node_modules/moment/src/locale/cs.js                         |   181 +
+ backend/node_modules/moment/src/locale/cv.js                         |    63 +
+ backend/node_modules/moment/src/locale/cy.js                         |    98 +
+ backend/node_modules/moment/src/locale/da.js                         |    53 +
+ backend/node_modules/moment/src/locale/de-at.js                      |    79 +
+ backend/node_modules/moment/src/locale/de-ch.js                      |    78 +
+ backend/node_modules/moment/src/locale/de.js                         |    78 +
+ backend/node_modules/moment/src/locale/dv.js                         |    90 +
+ backend/node_modules/moment/src/locale/el.js                         |   106 +
+ backend/node_modules/moment/src/locale/en-au.js                      |    68 +
+ backend/node_modules/moment/src/locale/en-ca.js                      |    64 +
+ backend/node_modules/moment/src/locale/en-gb.js                      |    68 +
+ backend/node_modules/moment/src/locale/en-ie.js                      |    68 +
+ backend/node_modules/moment/src/locale/en-il.js                      |    64 +
+ backend/node_modules/moment/src/locale/en-in.js                      |    68 +
+ backend/node_modules/moment/src/locale/en-nz.js                      |    68 +
+ backend/node_modules/moment/src/locale/en-sg.js                      |    68 +
+ backend/node_modules/moment/src/locale/eo.js                         |    68 +
+ backend/node_modules/moment/src/locale/es-do.js                      |   108 +
+ backend/node_modules/moment/src/locale/es-mx.js                      |   110 +
+ backend/node_modules/moment/src/locale/es-us.js                      |   110 +
+ backend/node_modules/moment/src/locale/es.js                         |   110 +
+ backend/node_modules/moment/src/locale/et.js                         |    78 +
+ backend/node_modules/moment/src/locale/eu.js                         |    65 +
+ backend/node_modules/moment/src/locale/fa.js                         |   113 +
+ backend/node_modules/moment/src/locale/fi.js                         |   124 +
+ backend/node_modules/moment/src/locale/fil.js                        |    58 +
+ backend/node_modules/moment/src/locale/fo.js                         |    57 +
+ backend/node_modules/moment/src/locale/fr-ca.js                      |    70 +
+ backend/node_modules/moment/src/locale/fr-ch.js                      |    74 +
+ backend/node_modules/moment/src/locale/fr.js                         |   108 +
+ backend/node_modules/moment/src/locale/fy.js                         |    75 +
+ backend/node_modules/moment/src/locale/ga.js                         |    95 +
+ backend/node_modules/moment/src/locale/gd.js                         |    95 +
+ backend/node_modules/moment/src/locale/gl.js                         |    75 +
+ backend/node_modules/moment/src/locale/gom-deva.js                   |   126 +
+ backend/node_modules/moment/src/locale/gom-latn.js                   |   124 +
+ backend/node_modules/moment/src/locale/gu.js                         |   122 +
+ backend/node_modules/moment/src/locale/he.js                         |    94 +
+ backend/node_modules/moment/src/locale/hi.js                         |   168 +
+ backend/node_modules/moment/src/locale/hr.js                         |   156 +
+ backend/node_modules/moment/src/locale/hu.js                         |   118 +
+ backend/node_modules/moment/src/locale/hy-am.js                      |    94 +
+ backend/node_modules/moment/src/locale/id.js                         |    76 +
+ backend/node_modules/moment/src/locale/is.js                         |   140 +
+ backend/node_modules/moment/src/locale/it-ch.js                      |    64 +
+ backend/node_modules/moment/src/locale/it.js                         |   106 +
+ backend/node_modules/moment/src/locale/ja.js                         |   148 +
+ backend/node_modules/moment/src/locale/jv.js                         |    76 +
+ backend/node_modules/moment/src/locale/ka.js                         |    92 +
+ backend/node_modules/moment/src/locale/kk.js                         |    82 +
+ backend/node_modules/moment/src/locale/km.js                         |   103 +
+ backend/node_modules/moment/src/locale/kn.js                         |   124 +
+ backend/node_modules/moment/src/locale/ko.js                         |    75 +
+ backend/node_modules/moment/src/locale/ku-kmr.js                     |   121 +
+ backend/node_modules/moment/src/locale/ku.js                         |   118 +
+ backend/node_modules/moment/src/locale/ky.js                         |    84 +
+ backend/node_modules/moment/src/locale/lb.js                         |   137 +
+ backend/node_modules/moment/src/locale/lo.js                         |    66 +
+ backend/node_modules/moment/src/locale/lt.js                         |   125 +
+ backend/node_modules/moment/src/locale/lv.js                         |    94 +
+ backend/node_modules/moment/src/locale/me.js                         |   117 +
+ backend/node_modules/moment/src/locale/mi.js                         |    60 +
+ backend/node_modules/moment/src/locale/mk.js                         |    85 +
+ backend/node_modules/moment/src/locale/ml.js                         |    82 +
+ backend/node_modules/moment/src/locale/mn.js                         |   100 +
+ backend/node_modules/moment/src/locale/mr.js                         |   203 +
+ backend/node_modules/moment/src/locale/ms-my.js                      |    76 +
+ backend/node_modules/moment/src/locale/ms.js                         |    75 +
+ backend/node_modules/moment/src/locale/mt.js                         |    56 +
+ backend/node_modules/moment/src/locale/my.js                         |    91 +
+ backend/node_modules/moment/src/locale/nb.js                         |    60 +
+ backend/node_modules/moment/src/locale/ne.js                         |   121 +
+ backend/node_modules/moment/src/locale/nl-be.js                      |   102 +
+ backend/node_modules/moment/src/locale/nl.js                         |   104 +
+ backend/node_modules/moment/src/locale/nn.js                         |    59 +
+ backend/node_modules/moment/src/locale/oc-lnc.js                     |    85 +
+ backend/node_modules/moment/src/locale/pa-in.js                      |   122 +
+ backend/node_modules/moment/src/locale/pl.js                         |   140 +
+ backend/node_modules/moment/src/locale/pt-br.js                      |    58 +
+ backend/node_modules/moment/src/locale/pt.js                         |    63 +
+ backend/node_modules/moment/src/locale/ro.js                         |    76 +
+ backend/node_modules/moment/src/locale/ru.js                         |   213 +
+ backend/node_modules/moment/src/locale/sd.js                         |    81 +
+ backend/node_modules/moment/src/locale/se.js                         |    57 +
+ backend/node_modules/moment/src/locale/si.js                         |    69 +
+ backend/node_modules/moment/src/locale/sk.js                         |   145 +
+ backend/node_modules/moment/src/locale/sl.js                         |   171 +
+ backend/node_modules/moment/src/locale/sq.js                         |    65 +
+ backend/node_modules/moment/src/locale/sr-cyrl.js                    |   127 +
+ backend/node_modules/moment/src/locale/sr.js                         |   129 +
+ backend/node_modules/moment/src/locale/ss.js                         |    84 +
+ backend/node_modules/moment/src/locale/sv.js                         |    68 +
+ backend/node_modules/moment/src/locale/sw.js                         |    55 +
+ backend/node_modules/moment/src/locale/ta.js                         |   131 +
+ backend/node_modules/moment/src/locale/te.js                         |    88 +
+ backend/node_modules/moment/src/locale/tet.js                        |    68 +
+ backend/node_modules/moment/src/locale/tg.js                         |   117 +
+ backend/node_modules/moment/src/locale/th.js                         |    65 +
+ backend/node_modules/moment/src/locale/tk.js                         |    91 +
+ backend/node_modules/moment/src/locale/tl-ph.js                      |    57 +
+ backend/node_modules/moment/src/locale/tlh.js                        |   124 +
+ backend/node_modules/moment/src/locale/tr.js                         |   106 +
+ backend/node_modules/moment/src/locale/tzl.js                        |    89 +
+ backend/node_modules/moment/src/locale/tzm-latn.js                   |    54 +
+ backend/node_modules/moment/src/locale/tzm.js                        |    54 +
+ backend/node_modules/moment/src/locale/ug-cn.js                      |   111 +
+ backend/node_modules/moment/src/locale/uk.js                         |   167 +
+ backend/node_modules/moment/src/locale/ur.js                         |    82 +
+ backend/node_modules/moment/src/locale/uz-latn.js                    |    54 +
+ backend/node_modules/moment/src/locale/uz.js                         |    51 +
+ backend/node_modules/moment/src/locale/vi.js                         |    80 +
+ backend/node_modules/moment/src/locale/x-pseudo.js                   |    73 +
+ backend/node_modules/moment/src/locale/yo.js                         |    53 +
+ backend/node_modules/moment/src/locale/zh-cn.js                      |   120 +
+ backend/node_modules/moment/src/locale/zh-hk.js                      |   101 +
+ backend/node_modules/moment/src/locale/zh-mo.js                      |   100 +
+ backend/node_modules/moment/src/locale/zh-tw.js                      |    99 +
+ backend/node_modules/moment/src/moment.js                            |    93 +
+ backend/node_modules/moment/ts3.1-typings/moment.d.ts                |   785 ++
+ backend/package-lock.json                                            |    10 +
+ backend/package.json                                                 |     1 +
+ backend/routes/bookingRoutes.js                                      |    47 +-
+ backend/utils/smsService.js                                          |    56 +-
+ frontend/.env                                                        |     1 +
+ frontend/build (2).zip                                               |   Bin 58483285 -> 0 bytes
+ frontend/build (3).zip                                               |   Bin 58483165 -> 0 bytes
+ frontend/build (4).zip                                               |   Bin 58483188 -> 0 bytes
+ frontend/build (5).zip                                               |   Bin 58483278 -> 0 bytes
+ frontend/build (6).zip                                               |   Bin 58483596 -> 0 bytes
+ frontend/build (7).zip                                               |   Bin 58483030 -> 0 bytes
+ frontend/build (8).zip                                               |   Bin 60066551 -> 0 bytes
+ frontend/build.zip                                                   |   Bin 58483064 -> 60058015 bytes
+ frontend/package.json                                                |     2 +-
+ frontend/public/index.html                                           |     4 +
+ frontend/src/App.js                                                  |    51 +-
+ frontend/src/components/DateButtonWithPicker.js                      |    54 +-
+ frontend/src/components/terms.html                                   |    46 +
+ frontend/src/index.css                                               |     3 +
+ frontend/src/layouts/AdminLayout.js                                  |   228 +-
+ frontend/src/pages/admin/AdminLogin.js                               |     2 +-
+ frontend/src/pages/user/BookingPage.js                               |    31 +-
+ frontend/src/pages/user/BookingPageCorrectCode.js                    |   560 ++
+ frontend/src/pages/user/Homepage.js                                  |    69 +-
+ frontend/src/pages/user/Login.js                                     |   147 +-
+ frontend/src/pages/user/MyBookings.js                                |   164 +-
+ frontend/src/pages/user/PaymentPage.js                               |   445 +-
+ frontend/src/pages/user/PrivacyPolicy.js                             |    61 +
+ frontend/src/pages/user/Sidebar.js                                   |    51 +-
+ frontend/src/pages/user/SportsVenue.js                               |     2 +-
+ frontend/src/pages/user/TermsAndConditions.js                        |    61 +
+ frontend/src/pages/user/UserProfile.js                               |     4 +-
+ frontend/src/pages/user/VenueDetails.js                              |    36 +-
+ frontend/src/routes/AdminRoutes.js                                   |    10 +-
+ frontend/src/routes/UserRoutes.js                                    |    32 +-
+ 579 files changed, 95125 insertions(+), 726 deletions(-)
+ create mode 100644 backend/node_modules/moment/CHANGELOG.md
+ create mode 100644 backend/node_modules/moment/LICENSE
+ create mode 100644 backend/node_modules/moment/README.md
+ create mode 100644 backend/node_modules/moment/dist/locale/af.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar-dz.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar-kw.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar-ly.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar-ma.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar-ps.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar-sa.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar-tn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ar.js
+ create mode 100644 backend/node_modules/moment/dist/locale/az.js
+ create mode 100644 backend/node_modules/moment/dist/locale/be.js
+ create mode 100644 backend/node_modules/moment/dist/locale/bg.js
+ create mode 100644 backend/node_modules/moment/dist/locale/bm.js
+ create mode 100644 backend/node_modules/moment/dist/locale/bn-bd.js
+ create mode 100644 backend/node_modules/moment/dist/locale/bn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/bo.js
+ create mode 100644 backend/node_modules/moment/dist/locale/br.js
+ create mode 100644 backend/node_modules/moment/dist/locale/bs.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ca.js
+ create mode 100644 backend/node_modules/moment/dist/locale/cs.js
+ create mode 100644 backend/node_modules/moment/dist/locale/cv.js
+ create mode 100644 backend/node_modules/moment/dist/locale/cy.js
+ create mode 100644 backend/node_modules/moment/dist/locale/da.js
+ create mode 100644 backend/node_modules/moment/dist/locale/de-at.js
+ create mode 100644 backend/node_modules/moment/dist/locale/de-ch.js
+ create mode 100644 backend/node_modules/moment/dist/locale/de.js
+ create mode 100644 backend/node_modules/moment/dist/locale/dv.js
+ create mode 100644 backend/node_modules/moment/dist/locale/el.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-au.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-ca.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-gb.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-ie.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-il.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-in.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-nz.js
+ create mode 100644 backend/node_modules/moment/dist/locale/en-sg.js
+ create mode 100644 backend/node_modules/moment/dist/locale/eo.js
+ create mode 100644 backend/node_modules/moment/dist/locale/es-do.js
+ create mode 100644 backend/node_modules/moment/dist/locale/es-mx.js
+ create mode 100644 backend/node_modules/moment/dist/locale/es-us.js
+ create mode 100644 backend/node_modules/moment/dist/locale/es.js
+ create mode 100644 backend/node_modules/moment/dist/locale/et.js
+ create mode 100644 backend/node_modules/moment/dist/locale/eu.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fa.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fi.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fil.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fo.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fr-ca.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fr-ch.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fr.js
+ create mode 100644 backend/node_modules/moment/dist/locale/fy.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ga.js
+ create mode 100644 backend/node_modules/moment/dist/locale/gd.js
+ create mode 100644 backend/node_modules/moment/dist/locale/gl.js
+ create mode 100644 backend/node_modules/moment/dist/locale/gom-deva.js
+ create mode 100644 backend/node_modules/moment/dist/locale/gom-latn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/gu.js
+ create mode 100644 backend/node_modules/moment/dist/locale/he.js
+ create mode 100644 backend/node_modules/moment/dist/locale/hi.js
+ create mode 100644 backend/node_modules/moment/dist/locale/hr.js
+ create mode 100644 backend/node_modules/moment/dist/locale/hu.js
+ create mode 100644 backend/node_modules/moment/dist/locale/hy-am.js
+ create mode 100644 backend/node_modules/moment/dist/locale/id.js
+ create mode 100644 backend/node_modules/moment/dist/locale/is.js
+ create mode 100644 backend/node_modules/moment/dist/locale/it-ch.js
+ create mode 100644 backend/node_modules/moment/dist/locale/it.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ja.js
+ create mode 100644 backend/node_modules/moment/dist/locale/jv.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ka.js
+ create mode 100644 backend/node_modules/moment/dist/locale/kk.js
+ create mode 100644 backend/node_modules/moment/dist/locale/km.js
+ create mode 100644 backend/node_modules/moment/dist/locale/kn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ko.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ku-kmr.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ku.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ky.js
+ create mode 100644 backend/node_modules/moment/dist/locale/lb.js
+ create mode 100644 backend/node_modules/moment/dist/locale/lo.js
+ create mode 100644 backend/node_modules/moment/dist/locale/lt.js
+ create mode 100644 backend/node_modules/moment/dist/locale/lv.js
+ create mode 100644 backend/node_modules/moment/dist/locale/me.js
+ create mode 100644 backend/node_modules/moment/dist/locale/mi.js
+ create mode 100644 backend/node_modules/moment/dist/locale/mk.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ml.js
+ create mode 100644 backend/node_modules/moment/dist/locale/mn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/mr.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ms-my.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ms.js
+ create mode 100644 backend/node_modules/moment/dist/locale/mt.js
+ create mode 100644 backend/node_modules/moment/dist/locale/my.js
+ create mode 100644 backend/node_modules/moment/dist/locale/nb.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ne.js
+ create mode 100644 backend/node_modules/moment/dist/locale/nl-be.js
+ create mode 100644 backend/node_modules/moment/dist/locale/nl.js
+ create mode 100644 backend/node_modules/moment/dist/locale/nn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/oc-lnc.js
+ create mode 100644 backend/node_modules/moment/dist/locale/pa-in.js
+ create mode 100644 backend/node_modules/moment/dist/locale/pl.js
+ create mode 100644 backend/node_modules/moment/dist/locale/pt-br.js
+ create mode 100644 backend/node_modules/moment/dist/locale/pt.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ro.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ru.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sd.js
+ create mode 100644 backend/node_modules/moment/dist/locale/se.js
+ create mode 100644 backend/node_modules/moment/dist/locale/si.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sk.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sl.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sq.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sr-cyrl.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sr.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ss.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sv.js
+ create mode 100644 backend/node_modules/moment/dist/locale/sw.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ta.js
+ create mode 100644 backend/node_modules/moment/dist/locale/te.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tet.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tg.js
+ create mode 100644 backend/node_modules/moment/dist/locale/th.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tk.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tl-ph.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tlh.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tr.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tzl.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tzm-latn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/tzm.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ug-cn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/uk.js
+ create mode 100644 backend/node_modules/moment/dist/locale/ur.js
+ create mode 100644 backend/node_modules/moment/dist/locale/uz-latn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/uz.js
+ create mode 100644 backend/node_modules/moment/dist/locale/vi.js
+ create mode 100644 backend/node_modules/moment/dist/locale/x-pseudo.js
+ create mode 100644 backend/node_modules/moment/dist/locale/yo.js
+ create mode 100644 backend/node_modules/moment/dist/locale/zh-cn.js
+ create mode 100644 backend/node_modules/moment/dist/locale/zh-hk.js
+ create mode 100644 backend/node_modules/moment/dist/locale/zh-mo.js
+ create mode 100644 backend/node_modules/moment/dist/locale/zh-tw.js
+ create mode 100644 backend/node_modules/moment/dist/moment.js
+ create mode 100644 backend/node_modules/moment/ender.js
+ create mode 100644 backend/node_modules/moment/locale/af.js
+ create mode 100644 backend/node_modules/moment/locale/ar-dz.js
+ create mode 100644 backend/node_modules/moment/locale/ar-kw.js
+ create mode 100644 backend/node_modules/moment/locale/ar-ly.js
+ create mode 100644 backend/node_modules/moment/locale/ar-ma.js
+ create mode 100644 backend/node_modules/moment/locale/ar-ps.js
+ create mode 100644 backend/node_modules/moment/locale/ar-sa.js
+ create mode 100644 backend/node_modules/moment/locale/ar-tn.js
+ create mode 100644 backend/node_modules/moment/locale/ar.js
+ create mode 100644 backend/node_modules/moment/locale/az.js
+ create mode 100644 backend/node_modules/moment/locale/be.js
+ create mode 100644 backend/node_modules/moment/locale/bg.js
+ create mode 100644 backend/node_modules/moment/locale/bm.js
+ create mode 100644 backend/node_modules/moment/locale/bn-bd.js
+ create mode 100644 backend/node_modules/moment/locale/bn.js
+ create mode 100644 backend/node_modules/moment/locale/bo.js
+ create mode 100644 backend/node_modules/moment/locale/br.js
+ create mode 100644 backend/node_modules/moment/locale/bs.js
+ create mode 100644 backend/node_modules/moment/locale/ca.js
+ create mode 100644 backend/node_modules/moment/locale/cs.js
+ create mode 100644 backend/node_modules/moment/locale/cv.js
+ create mode 100644 backend/node_modules/moment/locale/cy.js
+ create mode 100644 backend/node_modules/moment/locale/da.js
+ create mode 100644 backend/node_modules/moment/locale/de-at.js
+ create mode 100644 backend/node_modules/moment/locale/de-ch.js
+ create mode 100644 backend/node_modules/moment/locale/de.js
+ create mode 100644 backend/node_modules/moment/locale/dv.js
+ create mode 100644 backend/node_modules/moment/locale/el.js
+ create mode 100644 backend/node_modules/moment/locale/en-au.js
+ create mode 100644 backend/node_modules/moment/locale/en-ca.js
+ create mode 100644 backend/node_modules/moment/locale/en-gb.js
+ create mode 100644 backend/node_modules/moment/locale/en-ie.js
+ create mode 100644 backend/node_modules/moment/locale/en-il.js
+ create mode 100644 backend/node_modules/moment/locale/en-in.js
+ create mode 100644 backend/node_modules/moment/locale/en-nz.js
+ create mode 100644 backend/node_modules/moment/locale/en-sg.js
+ create mode 100644 backend/node_modules/moment/locale/eo.js
+ create mode 100644 backend/node_modules/moment/locale/es-do.js
+ create mode 100644 backend/node_modules/moment/locale/es-mx.js
+ create mode 100644 backend/node_modules/moment/locale/es-us.js
+ create mode 100644 backend/node_modules/moment/locale/es.js
+ create mode 100644 backend/node_modules/moment/locale/et.js
+ create mode 100644 backend/node_modules/moment/locale/eu.js
+ create mode 100644 backend/node_modules/moment/locale/fa.js
+ create mode 100644 backend/node_modules/moment/locale/fi.js
+ create mode 100644 backend/node_modules/moment/locale/fil.js
+ create mode 100644 backend/node_modules/moment/locale/fo.js
+ create mode 100644 backend/node_modules/moment/locale/fr-ca.js
+ create mode 100644 backend/node_modules/moment/locale/fr-ch.js
+ create mode 100644 backend/node_modules/moment/locale/fr.js
+ create mode 100644 backend/node_modules/moment/locale/fy.js
+ create mode 100644 backend/node_modules/moment/locale/ga.js
+ create mode 100644 backend/node_modules/moment/locale/gd.js
+ create mode 100644 backend/node_modules/moment/locale/gl.js
+ create mode 100644 backend/node_modules/moment/locale/gom-deva.js
+ create mode 100644 backend/node_modules/moment/locale/gom-latn.js
+ create mode 100644 backend/node_modules/moment/locale/gu.js
+ create mode 100644 backend/node_modules/moment/locale/he.js
+ create mode 100644 backend/node_modules/moment/locale/hi.js
+ create mode 100644 backend/node_modules/moment/locale/hr.js
+ create mode 100644 backend/node_modules/moment/locale/hu.js
+ create mode 100644 backend/node_modules/moment/locale/hy-am.js
+ create mode 100644 backend/node_modules/moment/locale/id.js
+ create mode 100644 backend/node_modules/moment/locale/is.js
+ create mode 100644 backend/node_modules/moment/locale/it-ch.js
+ create mode 100644 backend/node_modules/moment/locale/it.js
+ create mode 100644 backend/node_modules/moment/locale/ja.js
+ create mode 100644 backend/node_modules/moment/locale/jv.js
+ create mode 100644 backend/node_modules/moment/locale/ka.js
+ create mode 100644 backend/node_modules/moment/locale/kk.js
+ create mode 100644 backend/node_modules/moment/locale/km.js
+ create mode 100644 backend/node_modules/moment/locale/kn.js
+ create mode 100644 backend/node_modules/moment/locale/ko.js
+ create mode 100644 backend/node_modules/moment/locale/ku-kmr.js
+ create mode 100644 backend/node_modules/moment/locale/ku.js
+ create mode 100644 backend/node_modules/moment/locale/ky.js
+ create mode 100644 backend/node_modules/moment/locale/lb.js
+ create mode 100644 backend/node_modules/moment/locale/lo.js
+ create mode 100644 backend/node_modules/moment/locale/lt.js
+ create mode 100644 backend/node_modules/moment/locale/lv.js
+ create mode 100644 backend/node_modules/moment/locale/me.js
+ create mode 100644 backend/node_modules/moment/locale/mi.js
+ create mode 100644 backend/node_modules/moment/locale/mk.js
+ create mode 100644 backend/node_modules/moment/locale/ml.js
+ create mode 100644 backend/node_modules/moment/locale/mn.js
+ create mode 100644 backend/node_modules/moment/locale/mr.js
+ create mode 100644 backend/node_modules/moment/locale/ms-my.js
+ create mode 100644 backend/node_modules/moment/locale/ms.js
+ create mode 100644 backend/node_modules/moment/locale/mt.js
+ create mode 100644 backend/node_modules/moment/locale/my.js
+ create mode 100644 backend/node_modules/moment/locale/nb.js
+ create mode 100644 backend/node_modules/moment/locale/ne.js
+ create mode 100644 backend/node_modules/moment/locale/nl-be.js
+ create mode 100644 backend/node_modules/moment/locale/nl.js
+ create mode 100644 backend/node_modules/moment/locale/nn.js
+ create mode 100644 backend/node_modules/moment/locale/oc-lnc.js
+ create mode 100644 backend/node_modules/moment/locale/pa-in.js
+ create mode 100644 backend/node_modules/moment/locale/pl.js
+ create mode 100644 backend/node_modules/moment/locale/pt-br.js
+ create mode 100644 backend/node_modules/moment/locale/pt.js
+ create mode 100644 backend/node_modules/moment/locale/ro.js
+ create mode 100644 backend/node_modules/moment/locale/ru.js
+ create mode 100644 backend/node_modules/moment/locale/sd.js
+ create mode 100644 backend/node_modules/moment/locale/se.js
+ create mode 100644 backend/node_modules/moment/locale/si.js
+ create mode 100644 backend/node_modules/moment/locale/sk.js
+ create mode 100644 backend/node_modules/moment/locale/sl.js
+ create mode 100644 backend/node_modules/moment/locale/sq.js
+ create mode 100644 backend/node_modules/moment/locale/sr-cyrl.js
+ create mode 100644 backend/node_modules/moment/locale/sr.js
+ create mode 100644 backend/node_modules/moment/locale/ss.js
+ create mode 100644 backend/node_modules/moment/locale/sv.js
+ create mode 100644 backend/node_modules/moment/locale/sw.js
+ create mode 100644 backend/node_modules/moment/locale/ta.js
+ create mode 100644 backend/node_modules/moment/locale/te.js
+ create mode 100644 backend/node_modules/moment/locale/tet.js
+ create mode 100644 backend/node_modules/moment/locale/tg.js
+ create mode 100644 backend/node_modules/moment/locale/th.js
+ create mode 100644 backend/node_modules/moment/locale/tk.js
+ create mode 100644 backend/node_modules/moment/locale/tl-ph.js
+ create mode 100644 backend/node_modules/moment/locale/tlh.js
+ create mode 100644 backend/node_modules/moment/locale/tr.js
+ create mode 100644 backend/node_modules/moment/locale/tzl.js
+ create mode 100644 backend/node_modules/moment/locale/tzm-latn.js
+ create mode 100644 backend/node_modules/moment/locale/tzm.js
+ create mode 100644 backend/node_modules/moment/locale/ug-cn.js
+ create mode 100644 backend/node_modules/moment/locale/uk.js
+ create mode 100644 backend/node_modules/moment/locale/ur.js
+ create mode 100644 backend/node_modules/moment/locale/uz-latn.js
+ create mode 100644 backend/node_modules/moment/locale/uz.js
+ create mode 100644 backend/node_modules/moment/locale/vi.js
+ create mode 100644 backend/node_modules/moment/locale/x-pseudo.js
+ create mode 100644 backend/node_modules/moment/locale/yo.js
+ create mode 100644 backend/node_modules/moment/locale/zh-cn.js
+ create mode 100644 backend/node_modules/moment/locale/zh-hk.js
+ create mode 100644 backend/node_modules/moment/locale/zh-mo.js
+ create mode 100644 backend/node_modules/moment/locale/zh-tw.js
+ create mode 100644 backend/node_modules/moment/min/locales.js
+ create mode 100644 backend/node_modules/moment/min/locales.min.js
+ create mode 100644 backend/node_modules/moment/min/locales.min.js.map
+ create mode 100644 backend/node_modules/moment/min/moment-with-locales.js
+ create mode 100644 backend/node_modules/moment/min/moment-with-locales.min.js
+ create mode 100644 backend/node_modules/moment/min/moment-with-locales.min.js.map
+ create mode 100644 backend/node_modules/moment/min/moment.min.js
+ create mode 100644 backend/node_modules/moment/min/moment.min.js.map
+ create mode 100644 backend/node_modules/moment/moment.d.ts
+ create mode 100644 backend/node_modules/moment/moment.js
+ create mode 100644 backend/node_modules/moment/package.js
+ create mode 100644 backend/node_modules/moment/package.json
+ create mode 100644 backend/node_modules/moment/src/lib/create/check-overflow.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/date-from-array.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/from-anything.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/from-array.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/from-object.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/from-string-and-array.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/from-string-and-format.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/from-string.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/local.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/parsing-flags.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/utc.js
+ create mode 100644 backend/node_modules/moment/src/lib/create/valid.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/abs.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/add-subtract.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/as.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/bubble.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/clone.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/constructor.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/create.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/duration.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/get.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/humanize.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/iso-string.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/prototype.js
+ create mode 100644 backend/node_modules/moment/src/lib/duration/valid.js
+ create mode 100644 backend/node_modules/moment/src/lib/format/format.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/base-config.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/calendar.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/constructor.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/en.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/formats.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/invalid.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/lists.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/locale.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/locales.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/ordinal.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/pre-post-format.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/prototype.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/relative.js
+ create mode 100644 backend/node_modules/moment/src/lib/locale/set.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/add-subtract.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/calendar.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/clone.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/compare.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/constructor.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/creation-data.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/diff.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/format.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/from.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/get-set.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/locale.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/min-max.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/moment.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/now.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/prototype.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/start-end-of.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/to-type.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/to.js
+ create mode 100644 backend/node_modules/moment/src/lib/moment/valid.js
+ create mode 100644 backend/node_modules/moment/src/lib/parse/regex.js
+ create mode 100644 backend/node_modules/moment/src/lib/parse/token.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/aliases.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/constants.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/day-of-month.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/day-of-week.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/day-of-year.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/era.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/hour.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/millisecond.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/minute.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/month.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/offset.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/priorities.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/quarter.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/second.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/timestamp.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/timezone.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/units.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/week-calendar-utils.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/week-year.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/week.js
+ create mode 100644 backend/node_modules/moment/src/lib/units/year.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/abs-ceil.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/abs-floor.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/abs-round.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/compare-arrays.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/defaults.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/deprecate.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/extend.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/has-own-prop.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/hooks.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/index-of.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-array.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-calendar-spec.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-date.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-function.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-leap-year.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-moment-input.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-number.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-object-empty.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-object.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-string.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/is-undefined.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/keys.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/map.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/mod.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/some.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/to-int.js
+ create mode 100644 backend/node_modules/moment/src/lib/utils/zero-fill.js
+ create mode 100644 backend/node_modules/moment/src/locale/af.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar-dz.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar-kw.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar-ly.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar-ma.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar-ps.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar-sa.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar-tn.js
+ create mode 100644 backend/node_modules/moment/src/locale/ar.js
+ create mode 100644 backend/node_modules/moment/src/locale/az.js
+ create mode 100644 backend/node_modules/moment/src/locale/be.js
+ create mode 100644 backend/node_modules/moment/src/locale/bg.js
+ create mode 100644 backend/node_modules/moment/src/locale/bm.js
+ create mode 100644 backend/node_modules/moment/src/locale/bn-bd.js
+ create mode 100644 backend/node_modules/moment/src/locale/bn.js
+ create mode 100644 backend/node_modules/moment/src/locale/bo.js
+ create mode 100644 backend/node_modules/moment/src/locale/br.js
+ create mode 100644 backend/node_modules/moment/src/locale/bs.js
+ create mode 100644 backend/node_modules/moment/src/locale/ca.js
+ create mode 100644 backend/node_modules/moment/src/locale/cs.js
+ create mode 100644 backend/node_modules/moment/src/locale/cv.js
+ create mode 100644 backend/node_modules/moment/src/locale/cy.js
+ create mode 100644 backend/node_modules/moment/src/locale/da.js
+ create mode 100644 backend/node_modules/moment/src/locale/de-at.js
+ create mode 100644 backend/node_modules/moment/src/locale/de-ch.js
+ create mode 100644 backend/node_modules/moment/src/locale/de.js
+ create mode 100644 backend/node_modules/moment/src/locale/dv.js
+ create mode 100644 backend/node_modules/moment/src/locale/el.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-au.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-ca.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-gb.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-ie.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-il.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-in.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-nz.js
+ create mode 100644 backend/node_modules/moment/src/locale/en-sg.js
+ create mode 100644 backend/node_modules/moment/src/locale/eo.js
+ create mode 100644 backend/node_modules/moment/src/locale/es-do.js
+ create mode 100644 backend/node_modules/moment/src/locale/es-mx.js
+ create mode 100644 backend/node_modules/moment/src/locale/es-us.js
+ create mode 100644 backend/node_modules/moment/src/locale/es.js
+ create mode 100644 backend/node_modules/moment/src/locale/et.js
+ create mode 100644 backend/node_modules/moment/src/locale/eu.js
+ create mode 100644 backend/node_modules/moment/src/locale/fa.js
+ create mode 100644 backend/node_modules/moment/src/locale/fi.js
+ create mode 100644 backend/node_modules/moment/src/locale/fil.js
+ create mode 100644 backend/node_modules/moment/src/locale/fo.js
+ create mode 100644 backend/node_modules/moment/src/locale/fr-ca.js
+ create mode 100644 backend/node_modules/moment/src/locale/fr-ch.js
+ create mode 100644 backend/node_modules/moment/src/locale/fr.js
+ create mode 100644 backend/node_modules/moment/src/locale/fy.js
+ create mode 100644 backend/node_modules/moment/src/locale/ga.js
+ create mode 100644 backend/node_modules/moment/src/locale/gd.js
+ create mode 100644 backend/node_modules/moment/src/locale/gl.js
+ create mode 100644 backend/node_modules/moment/src/locale/gom-deva.js
+ create mode 100644 backend/node_modules/moment/src/locale/gom-latn.js
+ create mode 100644 backend/node_modules/moment/src/locale/gu.js
+ create mode 100644 backend/node_modules/moment/src/locale/he.js
+ create mode 100644 backend/node_modules/moment/src/locale/hi.js
+ create mode 100644 backend/node_modules/moment/src/locale/hr.js
+ create mode 100644 backend/node_modules/moment/src/locale/hu.js
+ create mode 100644 backend/node_modules/moment/src/locale/hy-am.js
+ create mode 100644 backend/node_modules/moment/src/locale/id.js
+ create mode 100644 backend/node_modules/moment/src/locale/is.js
+ create mode 100644 backend/node_modules/moment/src/locale/it-ch.js
+ create mode 100644 backend/node_modules/moment/src/locale/it.js
+ create mode 100644 backend/node_modules/moment/src/locale/ja.js
+ create mode 100644 backend/node_modules/moment/src/locale/jv.js
+ create mode 100644 backend/node_modules/moment/src/locale/ka.js
+ create mode 100644 backend/node_modules/moment/src/locale/kk.js
+ create mode 100644 backend/node_modules/moment/src/locale/km.js
+ create mode 100644 backend/node_modules/moment/src/locale/kn.js
+ create mode 100644 backend/node_modules/moment/src/locale/ko.js
+ create mode 100644 backend/node_modules/moment/src/locale/ku-kmr.js
+ create mode 100644 backend/node_modules/moment/src/locale/ku.js
+ create mode 100644 backend/node_modules/moment/src/locale/ky.js
+ create mode 100644 backend/node_modules/moment/src/locale/lb.js
+ create mode 100644 backend/node_modules/moment/src/locale/lo.js
+ create mode 100644 backend/node_modules/moment/src/locale/lt.js
+ create mode 100644 backend/node_modules/moment/src/locale/lv.js
+ create mode 100644 backend/node_modules/moment/src/locale/me.js
+ create mode 100644 backend/node_modules/moment/src/locale/mi.js
+ create mode 100644 backend/node_modules/moment/src/locale/mk.js
+ create mode 100644 backend/node_modules/moment/src/locale/ml.js
+ create mode 100644 backend/node_modules/moment/src/locale/mn.js
+ create mode 100644 backend/node_modules/moment/src/locale/mr.js
+ create mode 100644 backend/node_modules/moment/src/locale/ms-my.js
+ create mode 100644 backend/node_modules/moment/src/locale/ms.js
+ create mode 100644 backend/node_modules/moment/src/locale/mt.js
+ create mode 100644 backend/node_modules/moment/src/locale/my.js
+ create mode 100644 backend/node_modules/moment/src/locale/nb.js
+ create mode 100644 backend/node_modules/moment/src/locale/ne.js
+ create mode 100644 backend/node_modules/moment/src/locale/nl-be.js
+ create mode 100644 backend/node_modules/moment/src/locale/nl.js
+ create mode 100644 backend/node_modules/moment/src/locale/nn.js
+ create mode 100644 backend/node_modules/moment/src/locale/oc-lnc.js
+ create mode 100644 backend/node_modules/moment/src/locale/pa-in.js
+ create mode 100644 backend/node_modules/moment/src/locale/pl.js
+ create mode 100644 backend/node_modules/moment/src/locale/pt-br.js
+ create mode 100644 backend/node_modules/moment/src/locale/pt.js
+ create mode 100644 backend/node_modules/moment/src/locale/ro.js
+ create mode 100644 backend/node_modules/moment/src/locale/ru.js
+ create mode 100644 backend/node_modules/moment/src/locale/sd.js
+ create mode 100644 backend/node_modules/moment/src/locale/se.js
+ create mode 100644 backend/node_modules/moment/src/locale/si.js
+ create mode 100644 backend/node_modules/moment/src/locale/sk.js
+ create mode 100644 backend/node_modules/moment/src/locale/sl.js
+ create mode 100644 backend/node_modules/moment/src/locale/sq.js
+ create mode 100644 backend/node_modules/moment/src/locale/sr-cyrl.js
+ create mode 100644 backend/node_modules/moment/src/locale/sr.js
+ create mode 100644 backend/node_modules/moment/src/locale/ss.js
+ create mode 100644 backend/node_modules/moment/src/locale/sv.js
+ create mode 100644 backend/node_modules/moment/src/locale/sw.js
+ create mode 100644 backend/node_modules/moment/src/locale/ta.js
+ create mode 100644 backend/node_modules/moment/src/locale/te.js
+ create mode 100644 backend/node_modules/moment/src/locale/tet.js
+ create mode 100644 backend/node_modules/moment/src/locale/tg.js
+ create mode 100644 backend/node_modules/moment/src/locale/th.js
+ create mode 100644 backend/node_modules/moment/src/locale/tk.js
+ create mode 100644 backend/node_modules/moment/src/locale/tl-ph.js
+ create mode 100644 backend/node_modules/moment/src/locale/tlh.js
+ create mode 100644 backend/node_modules/moment/src/locale/tr.js
+ create mode 100644 backend/node_modules/moment/src/locale/tzl.js
+ create mode 100644 backend/node_modules/moment/src/locale/tzm-latn.js
+ create mode 100644 backend/node_modules/moment/src/locale/tzm.js
+ create mode 100644 backend/node_modules/moment/src/locale/ug-cn.js
+ create mode 100644 backend/node_modules/moment/src/locale/uk.js
+ create mode 100644 backend/node_modules/moment/src/locale/ur.js
+ create mode 100644 backend/node_modules/moment/src/locale/uz-latn.js
+ create mode 100644 backend/node_modules/moment/src/locale/uz.js
+ create mode 100644 backend/node_modules/moment/src/locale/vi.js
+ create mode 100644 backend/node_modules/moment/src/locale/x-pseudo.js
+ create mode 100644 backend/node_modules/moment/src/locale/yo.js
+ create mode 100644 backend/node_modules/moment/src/locale/zh-cn.js
+ create mode 100644 backend/node_modules/moment/src/locale/zh-hk.js
+ create mode 100644 backend/node_modules/moment/src/locale/zh-mo.js
+ create mode 100644 backend/node_modules/moment/src/locale/zh-tw.js
+ create mode 100644 backend/node_modules/moment/src/moment.js
+ create mode 100644 backend/node_modules/moment/ts3.1-typings/moment.d.ts
+ create mode 100644 frontend/.env
+ delete mode 100644 frontend/build (2).zip
+ delete mode 100644 frontend/build (3).zip
+ delete mode 100644 frontend/build (4).zip
+ delete mode 100644 frontend/build (5).zip
+ delete mode 100644 frontend/build (6).zip
+ delete mode 100644 frontend/build (7).zip
+ delete mode 100644 frontend/build (8).zip
+ create mode 100644 frontend/src/components/terms.html
+ create mode 100644 frontend/src/pages/user/BookingPageCorrectCode.js
+ create mode 100644 frontend/src/pages/user/PrivacyPolicy.js
+ create mode 100644 frontend/src/pages/user/TermsAndConditions.js
+ubuntu@ip-172-31-22-85:~/backend/backend$ npm install
+
+added 4 packages, and audited 226 packages in 3s
+
+34 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (2 moderate, 2 high, 2 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+ubuntu@ip-172-31-22-85:~/backend/backend$ pm2 restart backend
+Use --update-env to update environment variables
+[PM2][ERROR] Process or Namespace backend not found
+ubuntu@ip-172-31-22-85:~/backend/backend$ pm2 restart backend
+Use --update-env to update environment variables
+[PM2][ERROR] Process or Namespace backend not found
+ubuntu@ip-172-31-22-85:~/backend/backend$ pm2 list
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ my-backend         │ fork     │ 1    │ online    │ 0%       │ 91.6mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+ubuntu@ip-172-31-22-85:~/backend/backend$ pm2 restart my-backend
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [my-backend](ids: [ 0 ])
+[PM2] [my-backend](0) ✓
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ my-backend         │ fork     │ 2    │ online    │ 0%       │ 22.4mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+ubuntu@ip-172-31-22-85:~/backend/backend$ pm2 logs my-backend
+[TAILING] Tailing last 15 lines for [my-backend] process (change the value with --lines option)
+/home/ubuntu/.pm2/logs/my-backend-error.log last 15 lines:
+0|my-backe |   }
+0|my-backe | }
+0|my-backe | Booking creation error: TypeError: selectedSlots is not iterable
+0|my-backe |     at createBooking (file:///home/ubuntu/backend/backend/controllers/bookingController.js:29:24)
+0|my-backe |     at Layer.handleRequest (/home/ubuntu/backend/backend/node_modules/router/lib/layer.js:152:17)
+0|my-backe |     at next (/home/ubuntu/backend/backend/node_modules/router/lib/route.js:157:13)
+0|my-backe |     at authMiddleware (file:///home/ubuntu/backend/backend/middlewares/authMiddleware.js:23:5)
+0|my-backe |     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+0|my-backe | Booking creation error: TypeError: selectedSlots is not iterable
+0|my-backe |     at createBooking (file:///home/ubuntu/backend/backend/controllers/bookingController.js:29:24)
+0|my-backe |     at Layer.handleRequest (/home/ubuntu/backend/backend/node_modules/router/lib/layer.js:152:17)
+0|my-backe |     at next (/home/ubuntu/backend/backend/node_modules/router/lib/route.js:157:13)
+0|my-backe |     at authMiddleware (file:///home/ubuntu/backend/backend/middlewares/authMiddleware.js:23:5)
+0|my-backe |     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+0|my-backe | ⚠️ No phone found for user, SMS skipped
+
+/home/ubuntu/.pm2/logs/my-backend-out.log last 15 lines:
+0|my-backe |     isAvailable: true,
+0|my-backe |     _id: new ObjectId('68c7c400ddcb26e64a27e808')
+0|my-backe |   },
+0|my-backe |   {
+0|my-backe |     startTime: '12:00',
+0|my-backe |     endTime: '12:30',
+0|my-backe |     price: 1,
+0|my-backe |     isAvailable: true,
+0|my-backe |     _id: new ObjectId('68c7c400ddcb26e64a27e809')
+0|my-backe |   }
+0|my-backe | ]
+0|my-backe | MSG91 Response: { request_id: '3569707273567979684f5331', type: 'success' }
+0|my-backe | MSG91 Response: { request_id: '35697075644c6b6c4b595a6a', type: 'success' }
+0|my-backe | Server is running at http://localhost:8000
+0|my-backe | DB Connected
+
+client_loop: send disconnect: Connection reset
+
+C:\Users\cheta>

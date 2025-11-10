@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* index.css */
+@import "leaflet/dist/leaflet.css";
+
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+*{
+  font-family:sans-serif;
+}
+
+
+/* React Calendar Custom Styling */
+.react-calendar {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.react-calendar__tile--active {
+  background-color: #0d2149 !important;
+  color: white !important;
+  border-radius: 6px;
+}
+
+.react-calendar__navigation button {
+  color: #0d2149;
+  font-weight: 600;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+
+
+/* ✅ Hide scrollbar for Chrome, Safari, Edge */
+/* ✅ Hide scrollbar but keep scroll functional */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.react-datepicker-popper {
+  z-index: 10050 !important;
+}
+
+
+@media screen and (min-width:768px) and (max-width:993px){
+.mainheading{
+margin-left: 62px;
+}
+.navbartoggle{
+  margin-top: 20px;
+}
+}
+.navbartoggle {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+@media screen and (max-width:640px){
+.filtersidebar{
+  margin-top: 100px;
+}
+.filterbtn{
+  margin-bottom: 92px;
+}
+}
